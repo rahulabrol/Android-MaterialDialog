@@ -1,2 +1,4 @@
 rootProject.name='Android-MaterialDailog'
 include ':app'
+include ':materialdialog-android'
+include ':MaterialDialogLibrary'
