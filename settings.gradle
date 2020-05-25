@@ -1,0 +1,2 @@
+rootProject.name='Android-MaterialDailog'
+include ':app'
