@@ -22,15 +22,6 @@
             android:textAllCaps="false" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_simple_bottomsheet_dialog"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:text="Simple Bottomsheet Material Dialog"
-            android:textAllCaps="false" />
-
-        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_animated_dialog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -40,12 +31,21 @@
             android:textAllCaps="false" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_simple_bottomsheet_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:text="Simple Material Bottomsheet"
+            android:textAllCaps="false" />
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_animated_bottomsheet_dialog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
-            android:text="Animated Bottomsheet Material Dialog"
+            android:text="Animated Material Bottomsheet"
             android:textAllCaps="false" />
     </LinearLayout>
 
