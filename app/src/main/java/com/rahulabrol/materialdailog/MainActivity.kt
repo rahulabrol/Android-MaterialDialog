@@ -43,10 +43,40 @@ class MainActivity : AppCompatActivity() {
                         }
                     })
                 .build()
+                .show()
         }
 
         button_animated_dialog.setOnClickListener {
+            // Animated Simple Material Dialog
 
+            // Animated Simple Material Dialog
+            MaterialDialog.Builder(this)
+                .setTitle("Delete?")
+                .setMessage("Are you sure want to delete this file?")
+                .setCancelable(false)
+                .setPositiveButton(
+                    "Delete",
+                    R.drawable.ic_delete,
+                    object : AbstractDialog.OnClickListener {
+                        override fun onClick(dialogInterface: DialogInterface?, which: Int) {
+                            Toast.makeText(applicationContext, "Deleted!", Toast.LENGTH_SHORT)
+                                .show()
+                            dialogInterface?.dismiss()
+                        }
+                    })
+                .setNegativeButton(
+                    "Cancel",
+                    R.drawable.ic_close,
+                    object : AbstractDialog.OnClickListener {
+                        override fun onClick(dialogInterface: DialogInterface?, which: Int) {
+                            Toast.makeText(applicationContext, "Cancelled!", Toast.LENGTH_SHORT)
+                                .show()
+                            dialogInterface?.dismiss()
+                        }
+                    })
+                .setAnimation("delete_anim.json")
+                .build()
+                .show()
         }
     }
 }

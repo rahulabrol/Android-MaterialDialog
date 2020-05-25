@@ -35,7 +35,7 @@ open class AbstractDialog(
     @NonNull var mPositiveButton: DialogButton,
     @NonNull var mNegativeButton: DialogButton,
     @RawRes var mAnimationResId: Int,
-    @NonNull var mAnimationFile: String
+    @NonNull var mAnimationFile: String?
 ) : DialogInterface {
 
     protected var mDialog: Dialog? = null

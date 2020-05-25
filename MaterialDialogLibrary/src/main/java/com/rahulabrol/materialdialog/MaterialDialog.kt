@@ -21,7 +21,7 @@ class MaterialDialog(
     @NonNull mPositiveButton: DialogButton,
     @NonNull mNegativeButton: DialogButton,
     @RawRes mAnimationResId: Int,
-    @NonNull mAnimationFile: String
+    @NonNull mAnimationFile: String?
 ) : AbstractDialog(
     mActivity,
     title,
@@ -170,7 +170,7 @@ class MaterialDialog(
                 positiveButton!!,
                 negativeButton!!,
                 animationResId,
-                animationFile!!
+                animationFile
             )
         }
     }
