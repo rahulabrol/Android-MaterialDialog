@@ -288,6 +288,7 @@ See [Contributing Guidelines](CONTRIBUTING.md).
 This library is built using following open-source libraries.
 - [Material Components for Android](https://github.com/material-components/material-components-android)
 - [Lottie for Android](https://github.com/airbnb/lottie-android)
+- [Inspired By](https://github.com/PatilShreyas/MaterialDialog-Android)
 
 ## License
 Project is published under the Apache 2.0 license. Feel free to clone and modify repo as you want, but don't forget to add reference to authors :)

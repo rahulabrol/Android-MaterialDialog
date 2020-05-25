@@ -45,7 +45,7 @@ open class AbstractDialog(
     protected var mOnCancelListener: OnCancelListener? = null
     protected var mOnShowListener: OnShowListener? = null
 
-    protected fun createView(
+    protected open fun createView(
         inflater: LayoutInflater,
         container: ViewGroup?
     ): View? {
