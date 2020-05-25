@@ -6,9 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.rahulabrol.materialdialog.AbstractDialog
 import com.rahulabrol.materialdialog.MaterialDialog
 import com.rahulabrol.materialdialog.interfaces.DialogInterface
+import com.rahulabrol.materialdialog.interfaces.OnCancelListener
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnCancelListener {
 
     private var simpleDialog: MaterialDialog? = null
     private var animatedDialog: MaterialDialog? = null
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 })
             .build()
+        simpleDialog?.setOnCancelListener(this)
 
         // Animated Simple Material Dialog
         animatedDialog = MaterialDialog.Builder(this)
@@ -85,5 +87,9 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         const val IS_SHOWING_DIALOG = "IS_SHOWING_DIALOG"
+    }
+
+    override fun onCancel(dialogInterface: DialogInterface?) {
+        TODO("Not yet implemented")
     }
 }

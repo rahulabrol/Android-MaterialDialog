@@ -214,27 +214,21 @@ open class AbstractDialog(
      * Displays the Dialog
      */
     fun show() {
-        mDialog?.let {
-            it.show()
-        } ?: throwNullDialog()
+        mDialog?.show() ?: throwNullDialog()
     }
 
     /**
      * Cancels the Dialog
      */
     override fun cancel() {
-        mDialog?.let {
-            it.cancel()
-        } ?: throwNullDialog()
+        mDialog?.cancel() ?: throwNullDialog()
     }
 
     /**
      * Dismisses the Dialog
      */
     override fun dismiss() {
-        mDialog?.let {
-            it.dismiss()
-        } ?: throwNullDialog()
+        mDialog?.dismiss() ?: throwNullDialog()
     }
 
     /**
@@ -269,21 +263,15 @@ open class AbstractDialog(
     }
 
     private fun showCallback() {
-        mOnShowListener?.let {
-            it.onShow(this)
-        }
+        mOnShowListener?.onShow(this)
     }
 
     private fun dismissCallback() {
-        mOnDismissListener?.let {
-            it.onDismiss(this)
-        }
+        mOnDismissListener?.onDismiss(this)
     }
 
     private fun cancelCallback() {
-        mOnCancelListener.let {
-            mOnCancelListener?.onCancel(this)
-        }
+        mOnCancelListener?.onCancel(this)
     }
 
     private fun throwNullDialog() {

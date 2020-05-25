@@ -121,27 +121,36 @@ As there are two types of dialogs in library. Material Dialogs are instantiated 
 <a name="createMaterialDialog"></a>
 #### i. Material Dialog
 `MaterialDialog` class is used to create Material Dialog. Its static `Builder` class is used to instantiate it. After building, to show the dialog, `show()` method of `MaterialDialog` is used.
-```java
-        MaterialDialog mDialog = new MaterialDialog.Builder(this)
-                .setTitle("Delete?")
-                .setMessage("Are you sure want to delete this file?")
-                .setCancelable(false)
-                .setPositiveButton("Delete", R.drawable.ic_delete, new MaterialDialog.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int which) {
-                        // Delete Operation
-                    }
-                })
-                .setNegativeButton("Cancel", R.drawable.ic_close, new MaterialDialog.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int which) {
-                        dialogInterface.dismiss();
-                    }
-                })
-                .build();
+```kotlin
+        val  simpleDialog = MaterialDialog.Builder(this)
+                                   .setTitle("Delete?")
+                                   .setMessage("Are you sure want to delete this file?")
+                                   .setCancelable(false)
+                                   .setPositiveButton(
+                                       "Delete",
+                                       R.drawable.ic_delete,
+                                       object : AbstractDialog.OnClickListener {
+                                           override fun onClick(dialogInterface: DialogInterface?, which: Int) {
+                                               Toast.makeText(applicationContext, "Deleted!", Toast.LENGTH_SHORT)
+                                                   .show()
+                                               dialogInterface?.dismiss()
+
+                                           }
+                                       })
+                                   .setNegativeButton(
+                                       "Cancel",
+                                       R.drawable.ic_close,
+                                       object : AbstractDialog.OnClickListener {
+                                           override fun onClick(dialogInterface: DialogInterface?, which: Int) {
+                                               Toast.makeText(applicationContext, "Cancelled!", Toast.LENGTH_SHORT)
+                                                   .show()
+                                               dialogInterface?.dismiss()
+                                           }
+                                       })
+                                   .build()
 
         // Show Dialog
-        mDialog.show();
+        simpleDialog.show();
 ```
 
 <img align="center" src="GIFs/SimpleMaterialDialog.gif" width="300"/>
@@ -149,7 +158,7 @@ As there are two types of dialogs in library. Material Dialogs are instantiated 
 <a name="createBsMaterialDialog"></a>
 #### ii. Bottom Sheet Material Dialog
 `BottomSheetMaterialDialog` class is used to create Bottom Sheet Material Dialog. Its static `Builder` class is used to instantiate it. After building, to show the dialog, `show()` method of `BottomSheetMaterialDialog` is used.
-```java
+```kotlin
         BottomSheetMaterialDialog mBottomSheetDialog = new BottomSheetMaterialDialog.Builder(this)
                 .setTitle("Delete?")
                 .setMessage("Are you sure want to delete this file?")
@@ -205,7 +214,7 @@ Prototype :
 > setAnimation(int resourceId)
 
 Resource file should be passed to method. e.g. `R.raw.delete_anim`.
-```java
+```kotlin
         MaterialButton mDialog = new MaterialDialog.Builder(this)
                 // Other Methods to create Dialog........
                 .setAnimation(R.raw.delete_anim)
@@ -223,8 +232,8 @@ Prototype:
 > setAnimation(String fileName)
 
 **Only** file name ***with extensions*** should passed to method.
-```java
-        MaterialButton mDialog = new MaterialDialog.Builder(this)
+```kotlin
+        val mDialog = new MaterialDialog.Builder(this)
                 // Other Methods to create Dialog........
                 .setAnimation("delete_anim.json")
                 //...
@@ -233,7 +242,7 @@ Prototype:
 <a name="getLottieAnimationView"></a>
 #### iii. Getting `LottieAnimationView`
 To get `View` of Animation for any operations, there is a method in Material Dialogs which returns `LottieAnimationView` of dialog.
-```java
+```kotlin
         // Get Animation View
         LottieAnimationView animationView = mDialog.getAnimationView();
         // Do operations on animationView
@@ -247,27 +256,25 @@ Following are interfaces for implementations:
 - `OnShowListener()` - Listens for dialog Show event. Its `onShow()` is invoked when dialog is displayed.
 - `OnCancelListener()` - Listens for dialog Cancel event. Its `onCancel()` is invoked when dialog is cancelled.
 - `OnDismissListener()` - Listens for dialog Dismiss event. Its `onDismiss()` is dismiss when dialog is dismissed.
-```java
+```kotlin
        ...
        mDialog.setOnShowListener(this);
        mDialog.setOnCancelListener(this);
        mDialog.setOnDismissListener(this);
     }
 
-    @Override
-    public void onShow(DialogInterface dialogInterface) {
-        // Dialog is Displayed
-    }
+     override fun onShow(dialogInterface: DialogInterface?) {
+          // Dialog is Displayed
+     }
 
-    @Override
-    public void onCancel(DialogInterface dialogInterface) {
-        // Dialog is Cancelled
-    }
+     override fun onCancel(dialogInterface: DialogInterface?) {
+          // Dialog is Cancelled
+     }
 
-    @Override
-    public void onDismiss(DialogInterface dialogInterface) {
-        // Dialog is Dismissed
-    }
+     override fun onDismiss(dialogInterface: DialogInterface?) {
+          // Dialog is Dismissed
+     }
+
 }
 ```
 
