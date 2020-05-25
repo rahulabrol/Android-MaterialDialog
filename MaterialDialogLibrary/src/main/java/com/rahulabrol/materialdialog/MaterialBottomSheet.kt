@@ -17,9 +17,9 @@ import com.rahulabrol.materialdialog.model.DialogButton
  *
  * Creates BottomSheet Material Dialog with 2 buttons.
  * <p>
- * Use {@link BottomSheetMaterialDialog.Builder} to create a new instance.
+ * Use [MaterialBottomSheet.Builder] to create a new instance.
  */
-class BottomSheetMaterialDialog(
+class MaterialBottomSheet(
     @NonNull mActivity: Activity,
     @NonNull title: String,
     @NonNull message: String,
@@ -90,7 +90,7 @@ class BottomSheetMaterialDialog(
 
 
     /**
-     * Builder for [BottomSheetMaterialDialog].
+     * Builder for [MaterialBottomSheet].
      */
     class Builder
     /**
@@ -210,10 +210,10 @@ class BottomSheetMaterialDialog(
         }
 
         /**
-         * Build the [BottomSheetMaterialDialog].
+         * Build the [MaterialBottomSheet].
          */
-        fun build(): BottomSheetMaterialDialog {
-            return BottomSheetMaterialDialog(
+        fun build(): MaterialBottomSheet {
+            return MaterialBottomSheet(
                 activity,
                 title!!,
                 message!!,

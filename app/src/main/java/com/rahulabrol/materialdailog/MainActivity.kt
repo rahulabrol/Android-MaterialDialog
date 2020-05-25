@@ -12,8 +12,8 @@ class MainActivity : AppCompatActivity() {
 
     private var simpleDialog: MaterialDialog? = null
     private var animatedDialog: MaterialDialog? = null
-    private var mSimpleBottomSheetDialog: BottomSheetMaterialDialog? = null
-    private var mAnimatedBottomSheetDialog: BottomSheetMaterialDialog? = null
+    private var mSimpleBottomSheetDialog: MaterialBottomSheet? = null
+    private var mAnimatedBottomSheetDialog: MaterialBottomSheet? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,7 +75,7 @@ class MainActivity : AppCompatActivity() {
             .build()
 
         // Simple BottomSheet Material Dialog
-        mSimpleBottomSheetDialog = BottomSheetMaterialDialog.Builder(this)
+        mSimpleBottomSheetDialog = MaterialBottomSheet.Builder(this)
             .setTitle("Delete?")
             .setMessage("Are you sure want to delete this file?")
             .setCancelable(false)
@@ -95,7 +95,7 @@ class MainActivity : AppCompatActivity() {
 
 
         // Animated BottomSheet Material Dialog
-        mAnimatedBottomSheetDialog = BottomSheetMaterialDialog.Builder(this)
+        mAnimatedBottomSheetDialog = MaterialBottomSheet.Builder(this)
             .setTitle("Delete?")
             .setMessage("Are you sure want to delete this file?")
             .setCancelable(false)
