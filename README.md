@@ -159,24 +159,29 @@ As there are two types of dialogs in library. Material Dialogs are instantiated 
 #### ii. Bottom Sheet Material Dialog
 `BottomSheetMaterialDialog` class is used to create Bottom Sheet Material Dialog. Its static `Builder` class is used to instantiate it. After building, to show the dialog, `show()` method of `BottomSheetMaterialDialog` is used.
 ```kotlin
-        BottomSheetMaterialDialog mBottomSheetDialog = new BottomSheetMaterialDialog.Builder(this)
+        val mBottomSheetDialog = BottomSheetMaterialDialog.Builder(this)
                 .setTitle("Delete?")
                 .setMessage("Are you sure want to delete this file?")
                 .setCancelable(false)
-                .setPositiveButton("Delete", R.drawable.ic_delete, new BottomSheetMaterialDialog.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int which) {
-                        Toast.makeText(getApplicationContext(), "Deleted!", Toast.LENGTH_SHORT).show();
-                        dialogInterface.dismiss();
-                    }
-                })
-                .setNegativeButton("Cancel", R.drawable.ic_close, new BottomSheetMaterialDialog.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int which) {
-                        Toast.makeText(getApplicationContext(), "Cancelled!", Toast.LENGTH_SHORT).show();
-                        dialogInterface.dismiss();
-                    }
-                })
+                 .setPositiveButton( "Delete",
+                           R.drawable.ic_delete,
+                            object : AbstractDialog.OnClickListener {
+                            override fun onClick(dialogInterface: DialogInterface?, which: Int) {
+                             Toast.makeText(applicationContext, "Deleted!", Toast.LENGTH_SHORT)
+                              .show()
+                              dialogInterface?.dismiss()
+
+                             }
+                          })
+                 .setNegativeButton("Cancel",
+                             R.drawable.ic_close,
+                             object : AbstractDialog.OnClickListener {
+                             override fun onClick(dialogInterface: DialogInterface?, which: Int) {
+                             Toast.makeText(applicationContext, "Cancelled!", Toast.LENGTH_SHORT)
+                              .show()
+                             dialogInterface?.dismiss()
+                            }
+                         })
                 .build();
 
         // Show Dialog
@@ -215,7 +220,7 @@ Prototype :
 
 Resource file should be passed to method. e.g. `R.raw.delete_anim`.
 ```kotlin
-        MaterialButton mDialog = new MaterialDialog.Builder(this)
+        val mDialog = new MaterialDialog.Builder(this)
                 // Other Methods to create Dialog........
                 .setAnimation(R.raw.delete_anim)
                 //...

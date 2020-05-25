@@ -138,9 +138,9 @@ class MainActivity : AppCompatActivity() {
             simpleDialog?.show()
         }
 
-        button_simple_dialog.setOnClickListener {
+        button_animated_dialog.setOnClickListener {
             // Show simple Material Dialog
-            simpleDialog?.show()
+            animatedDialog?.show()
         }
 
         button_simple_bottomsheet_dialog.setOnClickListener {
